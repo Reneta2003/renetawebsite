@@ -62,7 +62,7 @@ const Projects = () => {
             title: 'InterTerm Klima',
             description: 'Passion project: Building a static website for my fathers air-conditioning business',
             technologies: 'HTML, CSS, JS',
-            image: '/images/interterm klima.png',
+            image: '/images/Interterm klima.png',
         },
         {
             title: 'Trilinguo',
