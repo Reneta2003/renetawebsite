@@ -1,0 +1,115 @@
+.cv-background {
+    background-color: unset;
+    margin: auto;
+    /* Adjust the height as needed */
+}
+.main-body {
+    background-color: white;
+}
+@media (min-width: 992px) { /* This is for large screens, you can adjust the value */
+    .page {
+        background-color: #ccebff;
+    }
+    .main-body {
+        background-color: #ccebff;
+    }
+    .cv-background {
+        background-color: white; /* Light green background */
+        max-width: 75%;
+    }
+}
+
+.name-placeholder {
+    font-size: 2rem; /* Adjust the size as needed */
+    margin-bottom: 1rem;
+    color: lightgrey;
+    font-weight: normal;
+}
+
+    .image-placeholder {
+    background-image: url('pics/AVO15349.JPG'); /* Replace with the path to your image */
+    background-size: cover;
+    width: 50vh; /* Adjust the width as needed */
+    height: 50vh; /* Adjust the height as needed */
+    border-radius: 50%; /* This will make it round, remove if you want a square */
+}
+/* Alternatively, if you want to make the button larger only on larger screens */
+@media (min-width: 992px) {
+    .btn-primary {
+        font-size: 2rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+    }
+    .inner-part{
+        width: 100rem;
+        background: white;
+    }
+}
+
+.hr-style1{
+    border: 2px solid darkblue;
+    width: 30%;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.hr-style2{
+    border: 2px solid darkblue;
+    width: 15%;
+    display: block;
+    margin: auto;
+}
+
+.skill-set .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skill-set .skill-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 5px;
+    border: 1px solid #003d66;
+    border-radius: 20px;
+    background-color: #ccebff;
+    color: #003d66;
+    font-weight: bold;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the spacing between icons as needed */
+}
+
+.contact-icons a {
+    color: #003d66; /* Adjust the color to match your design */
+    transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+    color: #1a88dc; /* Adjust the hover color to match your design */
+}
+
+
+/* Ensure all project images have the same size */
+.project-card-img {
+    width: 100%; /* Set width to 100% of the card */
+    height: 400px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the entire area, cropping if necessary */
+    border-radius: 8px; /* Optional: Add rounded corners to match the card's style */
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+}
+
+/* Hover effect to expand image */
+.project-card-img:hover {
+    transform: scale(1.1); /* Scale the image up to 110% */
+    z-index: 1; /* Ensure the image stays on top during the hover */
+    object-fit: fill ;
+    height: 100%;
+}
+
+
