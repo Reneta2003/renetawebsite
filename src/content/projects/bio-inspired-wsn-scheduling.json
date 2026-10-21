@@ -1,0 +1,23 @@
+{
+  "title": "Bio-inspired scheduling for wireless sensor networks",
+  "summary": "Compared Bat and Particle Swarm Optimization for sensor-node scheduling, then developed a hybrid approach.",
+  "description": "Our team studied how to schedule nodes in wireless sensor networks while balancing packet delivery, energy consumption and network lifetime. We implemented the Bat Algorithm, Particle Swarm Optimization (PSO), and a hybrid Bat-PSO approach in MATLAB. The simulations used 100 sensor nodes and compared results across 100 independent runs.\n\nThe hybrid combined the Bat Algorithm's exploration with PSO's convergence behaviour. In our simulations, it retained more energy than either standalone method and achieved a slightly higher packet delivery ratio than PSO, although the Bat Algorithm had the highest final packet delivery ratio. The evaluation also showed the limitations of making these comparisons in simulation without a full protocol stack or physical deployment.",
+  "context": "MSc course project",
+  "collaboration": "team",
+  "institution": "Eindhoven University of Technology",
+  "categories": [
+    "networking",
+    "embedded",
+    "software"
+  ],
+  "skills": [
+    "MATLAB",
+    "Wireless Sensor Networks",
+    "Particle Swarm Optimization",
+    "Bat Algorithm",
+    "Multi-objective Optimization",
+    "Simulation"
+  ],
+  "order": 18,
+  "todo": "Confirm project dates and your individual contribution; use the PDR, energy and lifetime plots from the report as visuals."
+}
