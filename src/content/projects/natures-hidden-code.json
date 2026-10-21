@@ -1,0 +1,17 @@
+{
+  "title": "Nature's Hidden Code",
+  "summary": "An interactive exhibition about fractals, built for NEMO Science Museum in Amsterdam.",
+  "description": "For an interdisciplinary project at TU/e, our team designed and built an exhibition for NEMO Science Museum in Amsterdam. We wanted to show how fractal patterns appear in nature without turning it into a lecture. Visitors could change the number, angle and length of branches in a projected simulation using physical buttons and a rotary encoder. They could also explore similar patterns in a workshop using leaves, fluorescent paint and postcards.\n\nWe started with a Three.js prototype, experimented with WebGL and eventually moved to Unity for the final installation. An Arduino handled the buttons, encoder, presence sensor and UV lighting. We built the control stand from a real tree trunk so the electronics could sit inside it.\n\nWe set up the exhibition at NEMO and tested it with visitors. The project brought together programming, electronics, woodworking and exhibition design.",
+  "context": "MSc interdisciplinary project",
+  "collaboration": "team",
+  "client": "NEMO Science Museum",
+  "institution": "Eindhoven University of Technology",
+  "categories": ["embedded", "software"],
+  "skills": ["Unity", "C#", "Arduino", "Three.js", "WebGL", "Interactive Prototyping", "3D Printing"],
+  "image": {
+    "src": "../../assets/projects/natures-hidden-code.jpg",
+    "alt": "Visitors exploring Nature's Hidden Code at NEMO, with fluorescent workshop materials and pink fractal projections."
+  },
+  "order": 20,
+  "todo": "Confirm project start/end months and your individual responsibilities. Team report documents group contributions but does not assign specific tasks to you."
+}

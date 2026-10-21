@@ -19,5 +19,8 @@
     "Simulation"
   ],
   "order": 18,
-  "todo": "Confirm project dates and your individual contribution; use the PDR, energy and lifetime plots from the report as visuals."
+  "todo": "Confirm project dates and your individual contribution; use the PDR, energy and lifetime plots from the report as visuals.",
+  "period": {
+    "start": "2025-10"
+  }
 }

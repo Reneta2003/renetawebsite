@@ -6,9 +6,24 @@
   "collaboration": "team",
   "client": "University of Twente library",
   "institution": "University of Twente",
-  "period": { "start": "2024-02", "end": "2024-04", "approximate": true },
-  "categories": ["embedded", "ml"],
-  "skills": ["Presence sensors", "Smart plugs", "Forecasting"],
+  "period": {
+    "start": "2024-02",
+    "end": "2024-04",
+    "approximate": true
+  },
+  "categories": [
+    "embedded",
+    "ml"
+  ],
+  "skills": [
+    "Presence sensors",
+    "Smart plugs",
+    "Forecasting"
+  ],
   "order": 7,
-  "todo": "Add the software stack and a photo of the display."
+  "todo": "Add the software stack and a photo of the display.",
+  "image": {
+    "src": "../../assets/projects/smart-library.png",
+    "alt": "Smart Library project infographic showing occupancy monitoring, desk availability, monitor tracking and forecasting."
+  }
 }

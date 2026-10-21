@@ -21,5 +21,8 @@
   "image": {
     "src": "../../assets/projects/restaurant-service-robot.png",
     "alt": "JetBot restaurant service robot beside a tablet displaying a guest image during testing"
+  },
+  "period": {
+    "start": "2025-06"
   }
 }

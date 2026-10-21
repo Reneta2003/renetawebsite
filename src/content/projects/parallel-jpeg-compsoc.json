@@ -20,5 +20,12 @@
     "Real-Time Analysis"
   ],
   "order": 19,
-  "todo": "Confirm project dates and individual contributions; add system diagrams and benchmark charts from the report."
+  "todo": "Confirm project dates and individual contributions; add system diagrams and benchmark charts from the report.",
+  "period": {
+    "start": "2026-06"
+  },
+  "image": {
+    "src": "../../assets/projects/compsoc.png",
+    "alt": "A close-up of the CompSOC multicore system-on-chip under test probes."
+  }
 }

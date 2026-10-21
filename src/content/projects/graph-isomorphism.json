@@ -5,9 +5,22 @@
   "context": "BSc project",
   "collaboration": "team",
   "institution": "University of Twente",
-  "period": { "start": "2023-02", "end": "2023-04", "approximate": true },
-  "categories": ["software"],
-  "skills": ["Algorithms", "Graph theory"],
+  "period": {
+    "start": "2023-02",
+    "end": "2023-04",
+    "approximate": true
+  },
+  "categories": [
+    "software"
+  ],
+  "skills": [
+    "Algorithms",
+    "Graph theory"
+  ],
   "order": 13,
-  "todo": "Add the programming language used."
+  "todo": "Add the programming language used.",
+  "image": {
+    "src": "../../assets/projects/graph-isomorphism.png",
+    "alt": "Two eight-node graphs with differently coloured vertices, used to illustrate graph isomorphism."
+  }
 }
