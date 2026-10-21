@@ -1,0 +1,13 @@
+{
+  "title": "Trilinguo",
+  "summary": "Learn Dutch by talking to an owl.",
+  "description": "A Duolingo-inspired app for learning Dutch, where you could speak with the Trilinguo owl in Dutch through custom speech-to-text and text-to-speech, built when ChatGPT was brand new.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "institution": "University of Twente",
+  "period": { "start": "2022-11", "end": "2023-02", "approximate": true },
+  "categories": ["software", "ml"],
+  "skills": ["React", "Bootstrap", "OpenAI API"],
+  "image": { "src": "../../assets/projects/trilinguo.jpg", "alt": "Trilinguo lesson menu with themed lessons such as King’s Day" },
+  "order": 12
+}

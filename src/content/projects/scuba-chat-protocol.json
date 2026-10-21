@@ -1,0 +1,13 @@
+{
+  "title": "Scuba Chat protocol",
+  "summary": "Lightweight messaging between divers.",
+  "description": "A lightweight networking protocol for communication between divers: divers discover each other, and the protocol handles missed messages, obstacles, and peers dropping out or appearing.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "institution": "University of Twente",
+  "period": { "start": "2022-02", "end": "2022-04", "approximate": true },
+  "categories": ["networking", "software"],
+  "skills": ["Java"],
+  "order": 10,
+  "todo": "Confirm whether this was a team or individual project."
+}

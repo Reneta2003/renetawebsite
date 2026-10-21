@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import { getProfile } from '../lib/content';
+
+const profile = await getProfile();
+---
+
+<Base title={`Page not found — ${profile.name}`} description="This page does not exist. Go back to the portfolio of Reneta Trifonova." path="/404/" noindex>
+  <main id="main" tabindex="-1" class="missing">
+    <div class="wrap">
+      <p class="missing__code">404</p>
+      <h1 class="missing__title">This page doesn’t exist.</h1>
+      <p class="missing__text">The link may be old, or the project may have moved.</p>
+      <a class="button" href="/">Back to the portfolio</a>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .missing {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: var(--powder);
+  }
+
+  .missing__code {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  .missing__code::after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 0 2px var(--navy);
+  }
+
+  .missing__title {
+    margin-top: 8px;
+    font-size: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .missing__text {
+    margin: 16px 0 32px;
+    font-size: 1.125rem;
+  }
+</style>

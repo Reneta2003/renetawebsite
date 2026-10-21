@@ -1,0 +1,279 @@
+---
+/**
+ * Project list with filters by area and by skill.
+ *
+ * Progressive enhancement: every project is server-rendered as a native
+ * <details> element, so the full list is readable and expandable without
+ * JavaScript (and by crawlers). The filter controls are rendered `hidden` and
+ * revealed by project-filter.ts, which only toggles visibility.
+ */
+import ProjectRow from './ProjectRow.astro';
+import { allProjectSkills, projectsInCategory, type Category, type Project } from '../lib/content';
+
+interface Props {
+  projects: Project[];
+  categories: Category[];
+  title: string;
+  intro: string;
+}
+const { projects, categories, title, intro } = Astro.props;
+
+const areas = categories
+  .map((c) => ({ id: c.id, label: c.data.label, count: projectsInCategory(projects, c.id).length }))
+  .filter((a) => a.count > 0);
+const skills = allProjectSkills(projects);
+const total = projects.length;
+---
+
+<section id="projects" class="wrap projects" aria-labelledby="projects-title">
+  <div class="section-head">
+    <h2 id="projects-title" class="section-title" tabindex="-1">{title}</h2>
+    <p class="section-intro">{intro}</p>
+  </div>
+
+  <div class="filters" data-filters hidden>
+    <div class="filters__areas" role="group" aria-label="Filter by area">
+      <button class="chip" type="button" aria-pressed="true" data-area="" data-label="All">
+        <span class="chip__dot" aria-hidden="true"></span>All <span class="chip__count">{total}</span>
+      </button>
+      {
+        areas.map((a) => (
+          <button class="chip" type="button" aria-pressed="false" data-area={a.id} data-label={a.label}>
+            <span class="chip__dot" aria-hidden="true" />
+            {a.label} <span class="chip__count">{a.count}</span>
+          </button>
+        ))
+      }
+    </div>
+    <div class="filters__skill">
+      <label for="skill-filter">Skill</label>
+      <span class="select">
+        <select id="skill-filter" data-skill>
+          <option value="">Any skill</option>
+          {skills.map((s) => <option value={s}>{s}</option>)}
+        </select>
+        <svg aria-hidden="true" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg>
+      </span>
+    </div>
+  </div>
+
+  <div class="status">
+    <p aria-live="polite" data-status data-total={total}>{total} projects. Open one for details.</p>
+    <button class="status__clear" type="button" data-clear hidden>Clear filters</button>
+  </div>
+
+  <ol class="project-list" data-project-list>
+    {projects.map((p) => <ProjectRow project={p} />)}
+  </ol>
+  <p class="empty" data-empty hidden>No project matches that combination yet.</p>
+</section>
+
+<script>
+  import { initProjectFilter } from '../scripts/project-filter';
+  initProjectFilter();
+</script>
+
+<style>
+  .projects {
+    padding-top: 128px;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .filters[hidden] {
+    display: none;
+  }
+
+  .filters__areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--powder);
+    color: var(--navy);
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+      background-color 0.16s var(--ease-out),
+      transform 0.12s var(--ease-out);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .chip:hover {
+    background: var(--powder-hover);
+  }
+
+  .chip:active {
+    transform: scale(0.96);
+  }
+
+  .chip[aria-pressed='true'] {
+    background: var(--navy);
+    color: var(--honeydew);
+  }
+
+  .chip__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .chip[aria-pressed='true'] .chip__dot {
+    background: var(--lime);
+  }
+
+  .chip__count {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8125rem;
+    line-height: 1;
+    opacity: 0.8;
+  }
+
+  .filters__skill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .select {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .select select {
+    appearance: none;
+    min-height: 44px;
+    padding: 0 40px 0 16px;
+    border: 2px solid var(--navy);
+    border-radius: var(--radius-pill);
+    background: var(--honeydew);
+    color: var(--navy);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .select svg {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -4px;
+    pointer-events: none;
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 44px;
+    margin-top: 16px;
+    font-size: 0.9375rem;
+  }
+
+  .status__clear {
+    min-height: 44px;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    color: var(--navy);
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--steel);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  .status__clear[hidden] {
+    display: none;
+  }
+
+  .project-list {
+    margin-top: 8px;
+    padding: 0;
+    list-style: none;
+    border-top: 3px solid var(--navy);
+  }
+
+  .empty {
+    margin-top: 24px;
+    font-size: 1.0625rem;
+  }
+
+  @media (max-width: 767px) {
+    .projects {
+      padding-top: 56px;
+    }
+
+    .filters {
+      display: block;
+      margin-top: 16px;
+    }
+
+    /* Chips scroll sideways on phones instead of wrapping into a tall block. */
+    .filters__areas {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin-inline: calc(var(--gutter) * -1);
+      padding-inline: var(--gutter);
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+    }
+
+    .filters__areas::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      flex: none;
+      padding: 0 14px;
+    }
+
+    .filters__skill {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.875rem;
+    }
+
+    .select,
+    .select select {
+      width: 100%;
+    }
+
+    .select select {
+      min-height: 48px;
+      font-size: 1rem;
+    }
+
+    .status {
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 0.875rem;
+    }
+  }
+</style>

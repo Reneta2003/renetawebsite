@@ -1,0 +1,13 @@
+{
+  "title": "Lightweight security protocols for IoT networks",
+  "summary": "OSCORE and EDHOC on constrained devices, benchmarked.",
+  "description": "Research on lightweight key establishment for resource-constrained IoT devices: I implemented and evaluated the OSCORE and EDHOC protocols on ESP32 and Raspberry Pi devices.\n\nThe evaluation benchmarked authentication methods, hardware acceleration, memory usage, latency and power consumption, to show the trade-offs between security, efficiency and energy.",
+  "context": "BSc thesis",
+  "collaboration": "individual",
+  "institution": "University of Twente",
+  "period": { "start": "2024-04", "end": "2024-07" },
+  "categories": ["security", "embedded", "networking"],
+  "skills": ["ESP32", "Raspberry Pi", "Zephyr RTOS", "CoAP", "OSCORE", "EDHOC", "DTLS"],
+  "order": 4,
+  "todo": "Add the link to the thesis in the University of Twente repository as a `links` entry."
+}

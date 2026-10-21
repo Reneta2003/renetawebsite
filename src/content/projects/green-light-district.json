@@ -1,0 +1,13 @@
+{
+  "title": "Green Light District",
+  "summary": "Smart traffic lights that pace cyclists to a green.",
+  "description": "A physical model junction built with 3D-printed parts: speed sensors detect approaching vehicles and cyclists, and the lights turn green at the right moment while meeting safety minimums.\n\nLEDs along the bike path light up at the speed a cyclist needs to keep to reach the next light on green.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "institution": "University of Twente",
+  "period": { "start": "2022-09", "end": "2022-11", "approximate": true },
+  "categories": ["embedded", "software"],
+  "skills": ["Python", "Django", "Raspberry Pi", "HTML/CSS", "Bootstrap"],
+  "image": { "src": "../../assets/projects/green-light-district.jpg", "alt": "Model road with two wooden traffic lights and a painted bike lane" },
+  "order": 6
+}

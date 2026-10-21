@@ -1,0 +1,86 @@
+---
+import ProfileLinks from './ProfileLinks.astro';
+import type { getProfile } from '../lib/content';
+
+interface Props {
+  profile: Awaited<ReturnType<typeof getProfile>>;
+}
+const { profile } = Astro.props;
+---
+
+<footer class="footer on-dark" id="contact">
+  <div class="wrap">
+    <p class="footer__prompt">{profile.sections.footerPrompt}</p>
+    <a class="footer__email" href={`mailto:${profile.email}`}>{profile.email}</a>
+    <div class="footer__meta">
+      <ProfileLinks links={profile.links} />
+      <p class="footer__where">{profile.location.display}, {profile.location.countryCode}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: var(--section-gap);
+    padding: 88px 0 56px;
+    background: var(--navy);
+    color: var(--honeydew);
+  }
+
+  .footer__prompt {
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: var(--powder);
+  }
+
+  .footer__email {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: clamp(1.75rem, 0.9rem + 3vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+    text-decoration-color: var(--lime);
+    text-decoration-thickness: 6px;
+    text-underline-offset: 12px;
+  }
+
+  .footer__email:hover {
+    text-decoration-thickness: 8px;
+  }
+
+  .footer__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 32px;
+    margin-top: 48px;
+    font-weight: 500;
+  }
+
+  .footer__where {
+    color: var(--powder);
+  }
+
+  @media (max-width: 767px) {
+    .footer {
+      padding: 40px 0 44px;
+    }
+
+    .footer__prompt {
+      font-size: 1.0625rem;
+    }
+
+    .footer__email {
+      margin-top: 10px;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 8px;
+    }
+
+    .footer__meta {
+      margin-top: 24px;
+      font-size: 0.875rem;
+    }
+  }
+</style>

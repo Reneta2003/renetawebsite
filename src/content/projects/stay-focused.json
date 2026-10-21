@@ -1,0 +1,13 @@
+{
+  "title": "Stay Focused",
+  "summary": "A serious game about ADHD.",
+  "description": "A serious game whose protagonist exhibits some of the symptoms of ADHD.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "institution": "University of Twente",
+  "period": { "start": "2023-09", "end": "2023-11", "approximate": true },
+  "categories": ["software"],
+  "skills": ["Unity 3D", "Blender", "C#"],
+  "image": { "src": "../../assets/projects/stay-focused.jpg", "alt": "Stay Focused game scene: a living room with a prompt to turn on the washing machine" },
+  "order": 14
+}

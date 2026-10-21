@@ -1,0 +1,65 @@
+[
+  {
+    "id": "novenda",
+    "order": 1,
+    "organization": "Novenda",
+    "role": "Software Test Engineer",
+    "start": "2024-11",
+    "location": "Eindhoven, NL",
+    "employmentType": "Part-time",
+    "highlights": [
+      "Designed and **independently implemented** multi-stage **CI/CD pipelines**: automated builds, **Google Test** and Python testing, and code analysis in secure virtual environments.",
+      "Integrated automated **vulnerability scanning** and **SBOM generation**, analysing 30+ software components and dependencies.",
+      "Ran **acceptance testing** against functional requirements and reported bugs to the development team."
+    ],
+    "skills": ["CI/CD", "Test automation", "Google Test", "Python", "Code analysis", "Supply-chain security"]
+  },
+  {
+    "id": "cofano",
+    "order": 2,
+    "organization": "Cofano Software Solutions",
+    "role": "Product and Implementation Engineer",
+    "start": "2022-07",
+    "end": "2024-05",
+    "location": "Enschede, NL",
+    "employmentType": "Part-time",
+    "highlights": [
+      "Developed logistics software supporting container-terminal operations across the Netherlands, Germany, Belgium and the UK.",
+      "Bridged terminal employees and developers, translating customer issues into **reproducible bug reports** and **technical requirements**.",
+      "**Automated** container-booking imports across CSV, Excel, JSON and XML, eliminating repetitive manual data entry."
+    ],
+    "skills": ["Requirements analysis", "Customer communication", "Data integration", "Process automation"]
+  },
+  {
+    "id": "university-of-twente",
+    "order": 3,
+    "organization": "University of Twente",
+    "organizationType": "CollegeOrUniversity",
+    "organizationUrl": "https://www.utwente.nl/",
+    "role": "Teaching Assistant, then head TA",
+    "start": "2022-09",
+    "end": "2024-08",
+    "location": "Enschede, NL",
+    "employmentType": "Part-time",
+    "highlights": [
+      "Developed and graded **cryptography** exercises on Arduino UNO for **90+ students** in an Embedded Systems course.",
+      "Mentored students and helped lecturers with teaching and grading Java, C, Linux and SQL.",
+      "Asked back as **head TA** for the FPGA and security course I had taken the year before."
+    ],
+    "skills": ["Technical communication", "Mentoring", "Assessment", "Embedded C", "Cryptography"],
+    "todo": "Add the name of the course you were head TA for."
+  },
+  {
+    "id": "edacation",
+    "order": 4,
+    "organization": "EDACation",
+    "role": "Student Developer",
+    "start": "2023-07",
+    "end": "2023-12",
+    "highlights": [
+      "Contributed to a **VS Code learning environment** for **digital hardware design**, bringing circuit simulation, waveform generation and FPGA design tools into an accessible workflow for students."
+    ],
+    "skills": ["VS Code extension development", "Digital hardware design", "Circuit simulation", "FPGA tooling"],
+    "todo": "Confirm location and employment type."
+  }
+]

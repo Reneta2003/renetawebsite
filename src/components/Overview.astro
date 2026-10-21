@@ -1,0 +1,300 @@
+---
+/** First content block: competencies (linked to the project filter), education and languages. */
+import LevelDots from './LevelDots.astro';
+import RichText from './RichText.astro';
+import { formatRange } from '../lib/format';
+import { projectsInCategory, type getProfile, type Project } from '../lib/content';
+
+interface Props {
+  profile: Awaited<ReturnType<typeof getProfile>>;
+  projects: Project[];
+}
+const { profile, projects } = Astro.props;
+
+// Card colours cycle through the palette in the order the design uses.
+const TONES = ['navy', 'steel', 'powder'] as const;
+const competencies = profile.competencies.map((c, i) => {
+  const count = projectsInCategory(projects, c.category.id).length;
+  return { ...c, tone: TONES[i % TONES.length], count };
+});
+---
+
+<div id="overview" class="wrap overview">
+  <section aria-labelledby="competencies-title">
+    <div class="section-head">
+      <h2 id="competencies-title" class="section-title">{profile.sections.competencies.title}</h2>
+      <p class="section-intro">{profile.sections.competencies.intro}</p>
+    </div>
+    <ul class="cards">
+      {
+        competencies.map((c) => (
+          <li class={`card card--${c.tone}`}>
+            <h3 class="card__title">{c.title}</h3>
+            <p class="card__skills">{c.skills.join(', ')}</p>
+            {c.count > 0 && (
+              <a class="card__link" href={`?area=${c.category.id}#projects`} data-area-link={c.category.id}>
+                {c.count} related {c.count === 1 ? 'project' : 'projects'}
+                <span aria-hidden="true"> →</span>
+              </a>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="row" aria-labelledby="education-title">
+    <h2 id="education-title" class="label-title">Education</h2>
+    <ul class="education">
+      {
+        profile.education.map((e) => (
+          <li>
+            {e.grade && (
+              <p class="education__grade">
+                <span class="visually-hidden">{e.gradeLabel ?? 'Grade'}: </span>
+                <span class="education__mark">{e.grade}</span>
+              </p>
+            )}
+            <h3 class="education__degree">{e.degree}</h3>
+            <p class="education__meta">
+              {e.institution}
+              <br />
+              <time datetime={e.start}>{formatRange(e.start, e.end, { ongoing: !e.end, ongoingLabel: 'present' })}</time>
+              {e.gradeLabel && !e.end && ` · ${e.gradeLabel}`}
+            </p>
+            {e.honours.length > 0 && <RichText class="education__honours" text={e.honours.map((h) => `**${h}**`).join(' · ')} />}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="row" aria-labelledby="languages-title">
+    <h2 id="languages-title" class="label-title">Languages</h2>
+    <dl class="languages">
+      {
+        profile.languages.map((l) => (
+          <div class="languages__row">
+            <dt>{l.name}</dt>
+            <dd aria-hidden="true">
+              <LevelDots level={l.level} />
+            </dd>
+            <dd class="languages__level">
+              {l.label ?? l.level}
+              {l.note && <span class="languages__note"> ({l.note})</span>}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+</div>
+
+<style>
+  .overview {
+    padding-top: 104px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+    gap: 20px;
+    margin-top: 32px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 260px;
+    padding: 24px 22px 18px;
+  }
+
+  .card--navy {
+    background: var(--navy);
+    color: var(--honeydew);
+  }
+
+  .card--steel {
+    background: var(--steel);
+    color: var(--white);
+  }
+
+  .card--powder {
+    background: var(--powder);
+    color: var(--navy);
+  }
+
+  .card__title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .card__skills {
+    flex: 1;
+    line-height: 1.55;
+  }
+
+  .card__link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration-color: currentColor;
+  }
+
+  .card--navy .card__link,
+  .card--steel .card__link {
+    text-decoration-color: var(--lime);
+  }
+
+  .card :focus-visible {
+    outline-color: currentColor;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: var(--label-col) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    margin-top: 72px;
+  }
+
+  .row + .row {
+    margin-top: 56px;
+  }
+
+  .education {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .education__grade {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .education__mark {
+    background: var(--lime);
+    padding: 0 0.1em;
+  }
+
+  .education__degree {
+    margin-top: 10px;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .education__meta {
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .education :global(.education__honours) {
+    margin-top: 6px;
+  }
+
+  .languages {
+    display: grid;
+    gap: 18px;
+    max-width: 760px;
+    font-size: 1.0625rem;
+  }
+
+  .languages__row {
+    display: grid;
+    grid-template-columns: 120px max-content minmax(0, 1fr);
+    gap: 28px;
+    align-items: center;
+  }
+
+  .languages dt,
+  .languages__level {
+    font-weight: 600;
+  }
+
+  .languages dd {
+    margin: 0;
+  }
+
+  .languages__note {
+    font-weight: 400;
+  }
+
+  @media (max-width: 767px) {
+    .overview {
+      padding-top: 48px;
+    }
+
+    .cards {
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .card {
+      min-height: 0;
+      gap: 6px;
+      padding: 18px 18px 6px;
+    }
+
+    .card__title {
+      font-size: 1.1875rem;
+    }
+
+    .card__skills {
+      font-size: 0.9375rem;
+    }
+
+    .row {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .row + .row {
+      margin-top: 40px;
+    }
+
+    .education {
+      gap: 16px;
+    }
+
+    .education__grade {
+      font-size: 2.75rem;
+    }
+
+    .education__degree {
+      font-size: 1rem;
+    }
+
+    .education__meta {
+      font-size: 0.875rem;
+    }
+
+    .languages {
+      font-size: 0.9375rem;
+      gap: 14px;
+    }
+
+    .languages__row {
+      grid-template-columns: 84px max-content minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .languages__note {
+      display: block;
+      font-size: 0.8125rem;
+    }
+  }
+</style>

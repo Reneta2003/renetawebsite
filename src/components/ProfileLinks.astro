@@ -1,0 +1,45 @@
+---
+/** CV / LinkedIn / GitHub. Only links with a value in profile.json are rendered, so the site never shows a dead link. */
+interface Props {
+  links: { cv?: string | null; linkedin?: string | null; github?: string | null };
+  class?: string;
+}
+const { links, class: className } = Astro.props;
+
+const items = [
+  { label: 'CV (PDF)', href: links.cv },
+  { label: 'LinkedIn', href: links.linkedin },
+  { label: 'GitHub', href: links.github },
+].filter((item): item is { label: string; href: string } => Boolean(item.href));
+---
+
+{
+  items.length > 0 && (
+    <ul class:list={['profile-links', className]}>
+      {items.map((item) => (
+        <li>
+          <a href={item.href} target="_blank" rel={item.href.startsWith('http') ? 'me noopener' : 'noopener'}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    padding: 0;
+    list-style: none;
+    font-weight: 500;
+  }
+
+  .profile-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+</style>

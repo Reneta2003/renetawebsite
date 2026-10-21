@@ -1,0 +1,13 @@
+{
+  "title": "Blowfish crypto-processor",
+  "summary": "A cryptographic processor on FPGA.",
+  "description": "A processor for Blowfish cryptographic operations, implemented on an FPGA.\n\nI did well enough in this course to become its head teaching assistant the following year.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "institution": "University of Twente",
+  "period": { "start": "2023-04", "end": "2023-07", "approximate": true },
+  "categories": ["embedded", "security"],
+  "skills": ["FPGA", "Clash"],
+  "image": { "src": "../../assets/projects/blowfish-fpga-board.jpg", "alt": "Spartan FPGA development board" },
+  "order": 8
+}

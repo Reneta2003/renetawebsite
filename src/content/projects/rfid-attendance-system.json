@@ -1,0 +1,15 @@
+{
+  "title": "RFID attendance system",
+  "summary": "Best Project Award. Students tap in at the teacher’s desk.",
+  "description": "Topicus brought us a real problem: teachers take attendance by hand, and late arrivals make it harder. We gave each student an RFID tag and built a reader for the teacher’s desk: students tap in as they enter, and a web interface records attendance and lets teachers override it manually.\n\nOur team won the Best Project Award.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "client": "Topicus",
+  "institution": "University of Twente",
+  "period": { "start": "2022-04", "end": "2022-07", "approximate": true },
+  "categories": ["embedded", "software"],
+  "skills": ["Java", "RFID", "SQL", "JavaScript", "HTML/CSS", "Bootstrap"],
+  "awards": ["Best Project Award"],
+  "image": { "src": "../../assets/projects/rfid-attendance-app.jpg", "alt": "Attendance web interface listing students marked as present" },
+  "order": 5
+}

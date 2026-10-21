@@ -1,0 +1,63 @@
+---
+import { getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Overview from '../components/Overview.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { getCategories, getExperience, getProfile, getProjects } from '../lib/content';
+import { homeGraph } from '../lib/structured-data';
+
+const [profile, roles, projects, categories] = await Promise.all([getProfile(), getExperience(), getProjects(), getCategories()]);
+
+const site = Astro.site!;
+const portrait = await getImage({ src: profile.photo.mobile, width: 800, format: 'jpg' });
+const jsonLd = homeGraph(site, profile, roles, projects, new URL(portrait.src, site).href);
+---
+
+<Base title={profile.seo.title} description={profile.seo.description} path="/" ogType="profile" jsonLd={jsonLd}>
+  <Hero profile={profile} />
+  <main id="main" tabindex="-1">
+    <Overview profile={profile} projects={projects} />
+    <Experience roles={roles} title={profile.sections.experience.title} intro={profile.sections.experience.intro} />
+    <Projects
+      projects={projects}
+      categories={categories}
+      title={profile.sections.projects.title}
+      intro={profile.sections.projects.intro}
+    />
+    <section class="wrap outside" aria-labelledby="outside-title">
+      <h2 id="outside-title" class="label-title">Outside work</h2>
+      <p>{profile.outsideWork}</p>
+    </section>
+  </main>
+  <SiteFooter profile={profile} />
+</Base>
+
+<style>
+  .outside {
+    display: grid;
+    grid-template-columns: var(--label-col) minmax(0, 1fr);
+    gap: 32px;
+    align-items: baseline;
+    padding-top: var(--section-gap);
+  }
+
+  .outside p {
+    max-width: 760px;
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 767px) {
+    .outside {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .outside p {
+      font-size: 1rem;
+    }
+  }
+</style>

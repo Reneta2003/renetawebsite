@@ -1,0 +1,289 @@
+---
+import { Image } from 'astro:assets';
+import { getEntries } from 'astro:content';
+import { paragraphs } from '../lib/rich-text';
+import { projectKind, projectPeriod, projectUrl, type Project } from '../lib/content';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+const { data } = project;
+const categories = await getEntries(data.categories);
+const kind = projectKind(project);
+const period = projectPeriod(project);
+const listSkills = data.skills.slice(0, 5).join(' · ') + (data.skills.length > 5 ? ' …' : '');
+---
+
+<li
+  class="project"
+  id={`project-${project.id}`}
+  data-categories={data.categories.map((c) => c.id).join(' ')}
+  data-skills={data.skills.join('|')}
+>
+  <details open={data.expanded}>
+    <summary class="project__summary">
+      <span class="project__thumb">
+        {data.image && <Image src={data.image.src} alt="" widths={[72, 144]} sizes="72px" width={72} height={54} loading="lazy" />}
+      </span>
+      <h3 class="project__title">{data.title}</h3>
+      <span class="project__line">{data.summary}</span>
+      <span class="project__line project__line--meta">{period ? `${kind} · ${period}` : kind}</span>
+      <span class="project__kind">
+        <strong>{kind}</strong>
+        {period && <span>{period}</span>}
+      </span>
+      <span class="project__skills">{listSkills}</span>
+      <span class="project__toggle" aria-hidden="true">+</span>
+    </summary>
+
+    <div class="project__detail">
+      <div class="project__text">
+        {paragraphs(data.description).map((p) => <p>{p}</p>)}
+        {data.awards.length > 0 && <p class="project__awards">{data.awards.join(' · ')}</p>}
+        <p class="project__facts">
+          {categories.map((c) => c.data.label).join(' · ')} — {data.skills.join(', ')}
+        </p>
+        <a class="project__more" href={projectUrl(project)}>
+          Project page<span class="visually-hidden">: {data.title}</span>
+          <span aria-hidden="true"> →</span>
+        </a>
+      </div>
+      {
+        data.image && (
+          <Image class="project__image" src={data.image.src} alt={data.image.alt} widths={[372, 744]} sizes="(max-width: 767px) 100vw, 372px" loading="lazy" />
+        )
+      }
+    </div>
+  </details>
+</li>
+
+<style>
+  .project {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project[hidden] {
+    display: none;
+  }
+
+  .project__summary {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) 200px 280px 28px;
+    grid-template-areas:
+      'thumb title kind skills toggle'
+      'thumb line  kind skills toggle';
+    column-gap: 24px;
+    align-items: center;
+    padding: 20px 8px 20px 0;
+    cursor: pointer;
+    list-style: none;
+    transition: background-color 0.18s var(--ease-out);
+  }
+
+  .project__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .project__summary:hover {
+    background: rgb(168 218 220 / 0.38);
+  }
+
+  .project__thumb {
+    grid-area: thumb;
+    width: 72px;
+    height: 54px;
+    overflow: hidden;
+    background: var(--powder);
+  }
+
+  .project__thumb :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project__title {
+    grid-area: title;
+    align-self: end;
+    font-size: 1.4375rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+
+  .project__line {
+    grid-area: line;
+    align-self: start;
+    margin-top: 4px;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--navy-soft);
+  }
+
+  .project__line--meta {
+    display: none;
+  }
+
+  .project__kind {
+    grid-area: kind;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .project__kind strong {
+    font-weight: 600;
+  }
+
+  .project__kind strong::first-letter {
+    text-transform: uppercase;
+  }
+
+  .project__skills {
+    grid-area: skills;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--navy-soft);
+  }
+
+  .project__toggle {
+    grid-area: toggle;
+    font-size: 1.875rem;
+    font-weight: 300;
+    line-height: 1;
+    text-align: center;
+    transition:
+      transform 0.22s var(--ease-out),
+      color 0.2s ease;
+  }
+
+  details[open] .project__toggle {
+    transform: rotate(45deg);
+    color: var(--steel);
+  }
+
+  .project__detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    column-gap: 24px;
+    padding: 0 0 32px 96px;
+  }
+
+  details[open] .project__detail {
+    animation: reveal 0.24s var(--ease-out);
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+
+  .project__text {
+    max-width: 660px;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .project__text p + p {
+    margin-top: 12px;
+  }
+
+  .project__awards {
+    font-weight: 600;
+  }
+
+  .project__facts {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--navy-soft);
+  }
+
+  .project__more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .project__detail :global(.project__image) {
+    width: 100%;
+    max-width: 372px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1099px) {
+    .project__summary {
+      grid-template-columns: 72px minmax(0, 1fr) 180px 28px;
+      grid-template-areas:
+        'thumb title kind toggle'
+        'thumb line  kind toggle';
+    }
+
+    .project__skills {
+      display: none;
+    }
+
+    .project__detail {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 20px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .project__summary {
+      grid-template-columns: 56px minmax(0, 1fr) 24px;
+      grid-template-areas:
+        'thumb title toggle'
+        'thumb line  toggle';
+      column-gap: 14px;
+      padding: 16px 0;
+    }
+
+    .project__thumb {
+      width: 56px;
+      height: 56px;
+    }
+
+    .project__title {
+      font-size: 1.125rem;
+      line-height: 1.2;
+    }
+
+    .project__line {
+      font-size: 0.8125rem;
+      margin-top: 3px;
+    }
+
+    .project__line:not(.project__line--meta),
+    .project__kind {
+      display: none;
+    }
+
+    .project__line--meta {
+      display: block;
+    }
+
+    .project__toggle {
+      font-size: 1.625rem;
+    }
+
+    .project__detail {
+      padding: 0 0 20px;
+    }
+
+    .project__text {
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .project__facts {
+      font-size: 0.8125rem;
+    }
+  }
+</style>

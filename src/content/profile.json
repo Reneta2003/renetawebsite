@@ -1,0 +1,167 @@
+{
+    "reneta":  {
+                   "name":  "Reneta Trifonova",
+                   "givenName":  "Reneta",
+                   "familyName":  "Trifonova",
+                   "jobTitle":  "Software Test Engineer",
+                   "headline":  "Software engineer working across embedded systems, security and reliable software infrastructure.",
+                   "summary":  "MSc **Embedded Systems** at TU Eindhoven. Software Test Engineer at Novenda, where I independently built **CI/CD pipelines** with **vulnerability scanning** and **SBOM** generation. BSc **cum laude**, Twente.",
+                   "email":  "connect@reneta.nl",
+                   "location":  {
+                                    "locality":  "Eindhoven",
+                                    "countryCode":  "NL",
+                                    "display":  "Eindhoven"
+                                },
+                   "citizenship":  "EU citizen",
+                   "links":  {
+                                 "cv": "/Reneta-Trifonova-CV.pdf",
+                                 "linkedin": "https://www.linkedin.com/in/reneta-trifonova",
+                                 "github": "https://github.com/reneta2003"
+                             },
+                   "photo":  {
+                                 "desktop":  "../assets/photos/reneta-luxembourg-river.jpg",
+                                 "mobile":  "../assets/photos/reneta-luxembourg-portrait.jpg",
+                                 "alt":  "Reneta Trifonova smiling on a bridge railing above Luxembourg City"
+                             },
+                   "competencies":  [
+                                        {
+                                            "title":  "Embedded \u0026 IoT",
+                                            "category":  "embedded",
+                                            "skills":  [
+                                                           "C",
+                                                           "C++",
+                                                           "ESP32",
+                                                           "Raspberry Pi",
+                                                           "Arduino",
+                                                           "FPGA",
+                                                           "Zephyr RTOS",
+                                                           "Contiki-NG",
+                                                           "Real-time programming",
+                                                           "Soldering"
+                                                       ]
+                                        },
+                                        {
+                                            "title":  "Security \u0026 networks",
+                                            "category":  "security",
+                                            "skills":  [
+                                                           "Vulnerability scanning",
+                                                           "SBOM",
+                                                           "Cloudflare Zero Trust",
+                                                           "Access control",
+                                                           "Traffic filtering",
+                                                           "Wireshark",
+                                                           "IPv6",
+                                                           "RPL",
+                                                           "OSCORE",
+                                                           "EDHOC"
+                                                       ]
+                                        },
+                                        {
+                                            "title":  "DevOps \u0026 testing",
+                                            "category":  "devops",
+                                            "skills":  [
+                                                           "CI/CD",
+                                                           "Azure DevOps",
+                                                           "Azure Pipelines",
+                                                           "Jenkins",
+                                                           "Google Test",
+                                                           "Docker",
+                                                           "Prometheus",
+                                                           "Grafana"
+                                                       ]
+                                        },
+                                        {
+                                            "title":  "Machine learning",
+                                            "category":  "ml",
+                                            "skills":  [
+                                                           "Python",
+                                                           "PyTorch",
+                                                           "NumPy",
+                                                           "Jupyter",
+                                                           "Transformers"
+                                                       ]
+                                        },
+                                        {
+                                            "title":  "Software",
+                                            "category":  "software",
+                                            "skills":  [
+                                                           "Python",
+                                                           "Java",
+                                                           "C",
+                                                           "C++",
+                                                           "C#",
+                                                           "SQL",
+                                                           "React",
+                                                           "Vue",
+                                                           "GraphQL",
+                                                           "JavaScript"
+                                                       ]
+                                        }
+                                    ],
+                   "education":  [
+                                     {
+                                         "degree":  "MSc Embedded Systems",
+                                         "institution":  "Eindhoven University of Technology",
+                                         "institutionUrl":  "https://www.tue.nl/",
+                                         "start":  "2024-09",
+                                         "grade":  "8.0",
+                                         "gradeLabel":  "GPA so far",
+                                         "honours":  [
+
+                                                     ]
+                                     },
+                                     {
+                                         "degree":  "BSc Technical Computer Science and Engineering",
+                                         "institution":  "University of Twente",
+                                         "institutionUrl":  "https://www.utwente.nl/",
+                                         "start":  "2021-09",
+                                         "end":  "2024-07",
+                                         "grade":  "8.2",
+                                         "gradeLabel":  "GPA",
+                                         "honours":  [
+                                                         "Cum laude",
+                                                         "Best Paper Award"
+                                                     ]
+                                     }
+                                 ],
+                   "languages":  [
+                                     {
+                                         "name":  "English",
+                                         "level":  "C2",
+                                         "code":  "en"
+                                     },
+                                     {
+                                         "name":  "Bulgarian",
+                                         "level":  "native",
+                                         "label":  "Fluent",
+                                         "code":  "bg"
+                                     },
+                                     {
+                                         "name":  "Dutch",
+                                         "level":  "B2",
+                                         "note":  "working proficiency",
+                                         "code":  "nl"
+                                     }
+                                 ],
+                   "outsideWork":  "Capture the Flag security challenges, a growing collection of National Geographic magazines, and travelling whenever there’s a reason to.",
+                   "sections":  {
+                                    "competencies":  {
+                                                         "title":  "Competencies",
+                                                         "intro":  "Each area links to the projects that prove it."
+                                                     },
+                                    "experience":  {
+                                                       "title":  "Work experience",
+                                                       "intro":  "Part-time roles held alongside full-time study."
+                                                   },
+                                    "projects":  {
+                                                     "title":  "Projects",
+                                                     "intro":  "Theses, research, personal and team projects. Filter by area or by a specific skill."
+                                                 },
+                                    "footerPrompt":  "Hiring for embedded, security or test infrastructure?"
+                                },
+                   "seo":  {
+                               "title": "Reneta Trifonova",
+                               "description":  "Eindhoven-based software engineer: embedded systems, IoT security and CI/CD test infrastructure. MSc Embedded Systems at TU/e, Software Test Engineer at Novenda."
+                           }
+               }
+}

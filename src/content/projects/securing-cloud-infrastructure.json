@@ -1,0 +1,12 @@
+{
+  "title": "Securing cloud infrastructure",
+  "summary": "Azure Linux behind Zero Trust, segmented and monitored.",
+  "description": "Deployed and secured Azure-based Linux infrastructure with network segmentation, Cloudflare Zero Trust authentication and firewall policies.\n\nConfigured automated monitoring, secure remote access and fault detection.",
+  "context": "Personal project",
+  "collaboration": "individual",
+  "period": { "start": "2026-08", "end": "2026-10" },
+  "categories": ["security", "devops", "networking"],
+  "skills": ["Linux", "Azure", "Cloudflare", "Docker", "Bash", "SSH", "Prometheus", "Grafana"],
+  "order": 2,
+  "todo": "Add an architecture diagram or Grafana screenshot."
+}

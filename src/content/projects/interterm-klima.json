@@ -1,0 +1,12 @@
+{
+  "title": "InterTerm Klima",
+  "summary": "A website for a family business.",
+  "description": "A static website for my father’s air-conditioning business.",
+  "context": "Personal project",
+  "collaboration": "individual",
+  "categories": ["software"],
+  "skills": ["HTML/CSS", "JavaScript"],
+  "image": { "src": "../../assets/projects/interterm-klima.jpg", "alt": "InterTerm Klima website header in red and black" },
+  "order": 16,
+  "todo": "Add the year and the live URL as a `links` entry."
+}

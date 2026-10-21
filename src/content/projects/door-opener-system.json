@@ -1,0 +1,13 @@
+{
+  "title": "Door Opener System",
+  "summary": "Atmega328p firmware handling several inputs.",
+  "description": "Ten-week internship assignment at Cofano Software Solutions: I programmed an Atmega328p microcontroller to handle input from several sources, edited an existing C# application on a Raspberry Pi 3B, and drew the diagrams of the electrical circuits.",
+  "context": "Internship assignment",
+  "collaboration": "individual",
+  "client": "Cofano Software Solutions",
+  "period": { "start": "2023-11", "end": "2024-02", "approximate": true },
+  "categories": ["embedded"],
+  "skills": ["C++", "C#", "Arduino", "Raspberry Pi", "RFID"],
+  "image": { "src": "../../assets/projects/door-opener-system.jpg", "alt": "Breadboards, coloured wiring and a Raspberry Pi for the door opener prototype" },
+  "order": 9
+}

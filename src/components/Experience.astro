@@ -1,0 +1,205 @@
+---
+import RichText from './RichText.astro';
+import { dotJoin } from '../lib/format';
+import { roleRange, type Role } from '../lib/content';
+
+interface Props {
+  roles: Role[];
+  title: string;
+  intro: string;
+}
+const { roles, title, intro } = Astro.props;
+---
+
+<section id="experience" class="experience on-dark" aria-labelledby="experience-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="experience-title" class="section-title">{title}</h2>
+      <p class="section-intro experience__intro">{intro}</p>
+    </div>
+
+    <ol class="roles">
+      {
+        roles.map((role) => {
+          const { data } = role;
+          const current = !data.end;
+          return (
+            <li class="role">
+              <div class="role__org">
+                {current && (
+                  <p class="role__current">
+                    <span class="dot" aria-hidden="true" />
+                    Current
+                  </p>
+                )}
+                <h3 class="role__company">{data.organization}</h3>
+                <p class="role__when">
+                  <time datetime={data.start}>{roleRange(role)}</time>
+                  {(data.location || data.employmentType) && <br />}
+                  {dotJoin(data.location, data.employmentType?.toLowerCase())}
+                </p>
+              </div>
+              <div class="role__body">
+                <p class="role__title">{data.role}</p>
+                {data.highlights.length > 0 && (
+                  <ul class="role__highlights">
+                    {data.highlights.map((h) => (
+                      <RichText as="li" text={h} />
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {data.skills.length > 0 && (
+                <p class="role__skills">
+                  <span class="visually-hidden">Skills: </span>
+                  {data.skills.join(' · ')}
+                </p>
+              )}
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .experience {
+    margin-top: var(--section-gap);
+    padding: 112px 0 120px;
+    background: var(--navy);
+    color: var(--honeydew);
+  }
+
+  .experience__intro {
+    color: var(--powder);
+  }
+
+  .roles {
+    margin-top: 40px;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--honeydew);
+  }
+
+  .role {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr) 260px;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line-on-dark);
+  }
+
+  .role:last-child {
+    border-bottom: 0;
+  }
+
+  .role__current {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .role__company {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .role__when {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--powder);
+  }
+
+  .role__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .role__highlights {
+    margin-top: 6px;
+    padding-left: 20px;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .role__highlights :global(li) {
+    margin-top: 10px;
+  }
+
+  .role__highlights :global(li::marker) {
+    color: var(--lime);
+  }
+
+  .role__skills {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--powder);
+  }
+
+  @media (max-width: 1099px) {
+    .role {
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 16px 32px;
+    }
+
+    .role__skills {
+      grid-column: 2;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .experience {
+      padding: 48px 0 40px;
+    }
+
+    .roles {
+      margin-top: 14px;
+    }
+
+    .role {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+      padding: 24px 0;
+    }
+
+    .role__skills {
+      grid-column: auto;
+      margin-top: 8px;
+    }
+
+    .role__current {
+      font-size: 0.8125rem;
+      margin-bottom: 8px;
+    }
+
+    .role__company {
+      font-size: 1.625rem;
+    }
+
+    .role__when {
+      margin-top: 2px;
+      font-size: 0.875rem;
+    }
+
+    .role__title {
+      font-size: 1rem;
+    }
+
+    .role__highlights {
+      padding-left: 18px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .role__highlights :global(li) {
+      margin-top: 8px;
+    }
+  }
+</style>

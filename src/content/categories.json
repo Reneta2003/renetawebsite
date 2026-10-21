@@ -1,0 +1,8 @@
+[
+  {"id": "embedded", "label": "Embedded & IoT", "description": "Embedded systems, firmware, microcontrollers, FPGAs and IoT hardware", "order": 1},
+  {"id": "security", "label": "Security", "description": "Cybersecurity, IoT security protocols, vulnerability scanning and secure infrastructure", "order": 2},
+  {"id": "networking", "label": "Networking", "description": "Network protocols, IPv6, RPL routing and distributed communication", "order": 3},
+  {"id": "devops", "label": "DevOps & cloud", "description": "CI/CD, test automation, cloud infrastructure and monitoring", "order": 4},
+  {"id": "ml", "label": "Machine learning", "description": "Machine learning, multimodal transformers, forecasting and conversational AI", "order": 5},
+  {"id": "software", "label": "Software", "description": "Software engineering, web applications, games and algorithms", "order": 6}
+]

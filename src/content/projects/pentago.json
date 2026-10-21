@@ -1,0 +1,13 @@
+{
+  "title": "Pentago",
+  "summary": "Networked game with a minimax AI.",
+  "description": "The board game Pentago as a terminal application, with networked two-player games and a minimax AI opponent.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "institution": "University of Twente",
+  "period": { "start": "2021-11", "end": "2022-02", "approximate": true },
+  "categories": ["software", "networking"],
+  "skills": ["Java"],
+  "order": 11,
+  "todo": "Confirm whether this was a team or individual project."
+}

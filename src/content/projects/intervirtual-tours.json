@@ -1,0 +1,12 @@
+{
+  "title": "InterVirtual Tours",
+  "summary": "Street View–style building tours.",
+  "description": "A web application for virtual tours of buildings in a Street View style, built from camera images stitched together into spheres.",
+  "context": "Web application project",
+  "collaboration": "team",
+  "categories": ["software"],
+  "skills": ["React"],
+  "image": { "src": "../../assets/projects/intervirtual-tours.jpg", "alt": "InterVirtual Tours landing page: “Be anywhere, anytime” with a phone showing a tour" },
+  "order": 15,
+  "todo": "Add the year."
+}

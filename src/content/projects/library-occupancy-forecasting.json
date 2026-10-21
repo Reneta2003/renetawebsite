@@ -1,0 +1,14 @@
+{
+  "title": "Library occupancy and forecasting",
+  "summary": "Which desks are in use, and how busy will it get?",
+  "description": "Our team found a client, the university library, with a problem: a lack of data about how its study places were used. Combining presence detectors and smart plugs, we determined whether a monitor place was in use and showed it on a display with other information.\n\nWe also built a custom forecasting model predicting how many people would be in the library at a given time.",
+  "context": "BSc design project",
+  "collaboration": "team",
+  "client": "University of Twente library",
+  "institution": "University of Twente",
+  "period": { "start": "2024-02", "end": "2024-04", "approximate": true },
+  "categories": ["embedded", "ml"],
+  "skills": ["Presence sensors", "Smart plugs", "Forecasting"],
+  "order": 7,
+  "todo": "Add the software stack and a photo of the display."
+}

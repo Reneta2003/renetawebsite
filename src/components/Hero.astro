@@ -1,0 +1,272 @@
+---
+import HeroPicture from './HeroPicture.astro';
+import RichText from './RichText.astro';
+import ProfileLinks from './ProfileLinks.astro';
+import type { getProfile } from '../lib/content';
+
+interface Props {
+  profile: Awaited<ReturnType<typeof getProfile>>;
+}
+const { profile } = Astro.props;
+---
+
+<header class="hero">
+  <div class="hero__panel">
+    <nav class="hero__nav" aria-label="Primary">
+      <a class="hero__wordmark" href="/">reneta.nl</a>
+      <ul class="hero__links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+      <a class="hero__mail" href={`mailto:${profile.email}`}>Email</a>
+    </nav>
+
+    <div class="hero__intro">
+      <h1 class="hero__name">{profile.name}</h1>
+      <p class="hero__headline">{profile.headline}</p>
+      <RichText class="hero__summary" text={profile.summary} />
+    </div>
+
+    <div class="hero__actions">
+      <div class="hero__cta">
+        <a class="button" href={`mailto:${profile.email}`}>{profile.email}</a>
+        <ProfileLinks links={profile.links} />
+      </div>
+      <p class="hero__where">
+        <span class="dot dot--ring" aria-hidden="true"></span>
+        Based in {profile.location.display}{profile.citizenship && ` · ${profile.citizenship}`}
+      </p>
+      <nav class="hero__jump" aria-label="Jump to section">
+        <a class="button button--light" href="#experience">Experience</a>
+        <a class="button button--light" href="#projects">Projects</a>
+      </nav>
+    </div>
+  </div>
+
+  <HeroPicture
+    class="hero__photo"
+    desktop={profile.photo.desktop}
+    mobile={profile.photo.mobile}
+    alt={profile.photo.alt}
+    desktopMedia="(min-width: 768px)"
+  />
+</header>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 820px;
+  }
+
+  .hero__panel {
+    background: var(--powder);
+    padding: 32px 56px 56px var(--gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .hero__nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-weight: 500;
+  }
+
+  .hero__wordmark {
+    margin-right: auto;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .hero__links {
+    display: flex;
+    gap: 28px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero__links a {
+    text-decoration: none;
+  }
+
+  .hero__links a:hover {
+    text-decoration: underline;
+  }
+
+  .hero__mail {
+    display: none;
+  }
+
+  .hero__name {
+    font-size: clamp(3rem, 1.6rem + 3.9vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+
+  .hero__headline {
+    margin-top: 24px;
+    max-width: 560px;
+    font-size: clamp(1.3125rem, 1rem + 0.9vw, 1.75rem);
+    line-height: 1.22;
+  }
+
+  .hero__intro :global(.hero__summary) {
+    margin-top: 22px;
+    max-width: 560px;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 20px;
+  }
+
+  .hero__where {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+  }
+
+  .hero__jump {
+    display: none;
+  }
+
+  .hero :global(.hero__photo) {
+    position: relative;
+    align-self: start;
+    display: block;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .hero :global(.hero__photo img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* 10% of the original height (2133px), expressed against its 1600px width. */
+    margin-top: -13.33125%;
+  }
+
+  @media (max-width: 1099px) {
+    .hero {
+      min-height: 720px;
+    }
+
+    .hero__panel {
+      padding-right: 32px;
+    }
+  }
+
+  /* Phone: photo first with the nav floating over it, then the powder panel. */
+  @media (max-width: 767px) {
+    .hero {
+      position: relative;
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    .hero :global(.hero__photo) {
+      order: -1;
+      height: 460px;
+      min-height: 0;
+    }
+
+    .hero :global(.hero__photo img) {
+      height: 100%;
+      margin-top: 0;
+      object-fit: cover;
+      object-position: 50% 28%;
+    }
+
+    .hero__panel {
+      padding: 28px var(--gutter) 32px;
+      gap: 24px;
+    }
+
+    .hero__nav {
+      position: absolute;
+      top: 12px;
+      left: var(--gutter);
+      right: var(--gutter);
+      justify-content: space-between;
+    }
+
+    .hero__links {
+      display: none;
+    }
+
+    .hero__wordmark,
+    .hero__mail {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 14px;
+      border-radius: var(--radius-pill);
+      background: var(--honeydew);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .hero__wordmark {
+      margin-right: 0;
+      font-weight: 700;
+    }
+
+    .hero__name {
+      font-size: 3rem;
+    }
+
+    .hero__headline {
+      margin-top: 16px;
+    }
+
+    .hero__intro :global(.hero__summary) {
+      margin-top: 14px;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .hero__cta {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .hero__cta .button {
+      min-height: 54px;
+      font-size: 1.0625rem;
+    }
+
+    .hero__where {
+      font-size: 0.875rem;
+    }
+
+    .hero__jump {
+      display: flex;
+      gap: 8px;
+    }
+
+    .hero__jump .button {
+      flex: 1;
+      min-height: 44px;
+      font-size: 0.9375rem;
+    }
+  }
+</style>

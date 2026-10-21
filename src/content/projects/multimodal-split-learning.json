@@ -1,0 +1,14 @@
+{
+  "title": "Multimodal split learning under missing modalities",
+  "summary": "Making multimodal transformers robust when inputs are missing.",
+  "description": "Investigating the lack of robustness of multimodal transformer models under missing modalities in a split-learning setup, where the model is divided between client devices and a server.\n\nI independently designed a Transformer framework to evaluate alternative approaches, such as fusion and imputation techniques, to improve accuracy.",
+  "context": "MSc thesis",
+  "collaboration": "individual",
+  "institution": "Eindhoven University of Technology",
+  "period": { "start": "2025-11", "ongoing": true },
+  "categories": ["ml"],
+  "skills": ["Python", "PyTorch", "Transformers"],
+  "order": 1,
+  "expanded": true,
+  "todo": "Add the headline result and the modalities studied when the thesis is complete."
+}

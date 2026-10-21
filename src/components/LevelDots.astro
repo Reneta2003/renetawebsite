@@ -1,0 +1,47 @@
+---
+/**
+ * Six circles on the CEFR scale (A1–C2), filled up to the level.
+ * Decorative: the level is always written next to it, so assistive tech skips the dots.
+ */
+import { CEFR_MAX, cefrSteps, type CefrLevel } from '../lib/format';
+
+interface Props {
+  level: CefrLevel;
+}
+const filled = cefrSteps(Astro.props.level);
+---
+
+<span class="dots" aria-hidden="true">
+  {Array.from({ length: CEFR_MAX }, (_, i) => <span class:list={['dots__dot', { 'dots__dot--on': i < filled }]} />)}
+</span>
+
+<style>
+  .dots {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .dots__dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgb(29 53 87 / 0.35);
+  }
+
+  .dots__dot--on {
+    border-color: var(--navy);
+    background: var(--navy);
+  }
+
+  @media (max-width: 767px) {
+    .dots {
+      gap: 6px;
+    }
+
+    .dots__dot {
+      width: 14px;
+      height: 14px;
+    }
+  }
+</style>

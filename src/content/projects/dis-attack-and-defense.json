@@ -1,0 +1,13 @@
+{
+  "title": "DIS attack and defense",
+  "summary": "Attacking and defending a physical RPL network.",
+  "description": "Conducted DIS flooding and IPv6 attacks on a physical IoT network using the RPL routing protocol, then protected it with rate limiting and MAC-address-based filtering in Contiki-NG.\n\nWireshark packet analysis validated the mitigation and showed the reduction in malicious traffic.",
+  "context": "Course project",
+  "collaboration": "team",
+  "institution": "Eindhoven University of Technology",
+  "period": { "start": "2026-02", "end": "2026-04" },
+  "categories": ["security", "embedded", "networking"],
+  "skills": ["C", "Linux", "Contiki-NG", "Wireshark", "IPv6", "RPL", "IEEE 802.15.4", "nRF52840", "CC2650"],
+  "order": 3,
+  "todo": "Add a photo of the testbed or the Wireshark before/after."
+}

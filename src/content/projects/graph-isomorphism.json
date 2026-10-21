@@ -1,0 +1,13 @@
+{
+  "title": "Graph isomorphism",
+  "summary": "One of the fastest algorithms in the course.",
+  "description": "A colour-refinement algorithm to find how many isomorphisms exist in a set of graphs. Our implementation was among the fastest in the course.",
+  "context": "BSc project",
+  "collaboration": "team",
+  "institution": "University of Twente",
+  "period": { "start": "2023-02", "end": "2023-04", "approximate": true },
+  "categories": ["software"],
+  "skills": ["Algorithms", "Graph theory"],
+  "order": 13,
+  "todo": "Add the programming language used."
+}
