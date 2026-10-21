@@ -4,8 +4,8 @@
                    "givenName":  "Reneta",
                    "familyName":  "Trifonova",
                    "jobTitle":  "Software Test Engineer",
-                   "headline":  "Software engineer working across embedded systems, security and reliable software infrastructure.",
-                   "summary":  "MSc **Embedded Systems** at TU Eindhoven. Software Test Engineer at Novenda, where I independently built **CI/CD pipelines** with **vulnerability scanning** and **SBOM** generation. BSc **cum laude**, Twente.",
+                   "headline":  "MSc Embedded Systems Student · Software Test Engineer",
+                   "summary":  "I am an **Embedded Systems master’s student** at Eindhoven University of Technology, with a background in technical computer science and experience across DevSecOps, software quality, embedded development, automation, and applied machine learning.\nI also work part-time as a **Software Test Engineer**, where I develop automated tests and maintain **CI/CD pipelines** for software used in multimaterial 3D printing.\nIn my free time, I enjoy **CTF challenges** and learning more about penetration testing and cybersecurity.",
                    "email":  "connect@reneta.nl",
                    "location":  {
                                     "locality":  "Eindhoven",
