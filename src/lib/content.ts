@@ -20,17 +20,13 @@ export async function getCategories(): Promise<Category[]> {
   return categories.sort((a, b) => a.data.order - b.data.order);
 }
 
-const startKey = (p: Project) => p.data.period?.start ?? '0000';
+const endKey = (p: Project) =>
+  p.data.period?.ongoing ? '9999-99' : p.data.period?.end ?? p.data.period?.start ?? '0000';
 
-/** Explicit `order` first (ascending), then the rest newest first. */
+/** Projects with the most recent end date come first; ongoing projects lead. */
 export async function getProjects(): Promise<Project[]> {
   const projects = await getCollection('projects');
-  return projects.sort((a, b) => {
-    const ao = a.data.order ?? Number.POSITIVE_INFINITY;
-    const bo = b.data.order ?? Number.POSITIVE_INFINITY;
-    if (ao !== bo) return ao - bo;
-    return startKey(b).localeCompare(startKey(a));
-  });
+  return projects.sort((a, b) => endKey(b).localeCompare(endKey(a)));
 }
 
 export async function getExperience(): Promise<Role[]> {

@@ -1,9 +1,9 @@
 {
   "title": "Restaurant service robot",
   "summary": "A JetBot that seated guests and delivered food to the right table using QR codes.",
-  "description": "For an Embedded Visual Control course project, our team built a restaurant service robot for a model restaurant with four tables and a kitchen. It detected arriving guests, counted the group, selected a suitable table, and later collected food from the kitchen for delivery.\n\nMy assigned part was the QR-code-based food delivery: reading the code at the kitchen and directing the robot to the correct table. We integrated the camera, movement and decision-making components and tested the system on the physical JetBot. In the final evaluation, it typically reached destinations in around 10 seconds, with positioning accuracy of about 5 cm. Obstacle detection and avoidance were part of the original plan but were not implemented.",
+  "description": "For an Embedded Visual Control course project, I built a restaurant service robot for a model restaurant with four tables and a kitchen. The robot detected arriving guests, counted the group, selected a suitable table, and later collected food from the kitchen for delivery.\n\nI implemented and integrated the camera, movement and decision-making components, including QR-code reading at the kitchen to direct the robot to the correct table, as well as obstacle detection and avoidance. I tested the system on the physical JetBot. In the final evaluation, it typically reached destinations in around 10 seconds, with positioning accuracy of about 5 cm.",
   "context": "MSc course project",
-  "collaboration": "team",
+  "collaboration": "individual",
   "institution": "Eindhoven University of Technology",
   "categories": [
     "embedded",

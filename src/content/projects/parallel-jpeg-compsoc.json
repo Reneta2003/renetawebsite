@@ -1,7 +1,7 @@
 {
   "title": "Parallel JPEG processing on CompSOC",
   "summary": "Built a lock-free FIFO library and benchmarked parallel JPEG decoding on a multicore RISC-V platform.",
-  "description": "For the Embedded Systems Laboratory, our two-person team built libmyfifo, a lightweight single-producer/single-consumer FIFO library for communication between partitions on the CompSOC platform. We also implemented four JPEG decoding variants: a sequential baseline and data-parallel, function-parallel and hybrid-parallel versions.\n\nFor 16-byte tokens, our FIFO reduced communication cost from 786 to 322 cycles per token compared with the provided library, a speedup of about 2.4x. Across the non-trivial images in our benchmark, data parallelism achieved a 2.87x geometric-mean speedup over sequential decoding; function parallelism achieved 2.80x and the hybrid approach 2.38x. We validated the decoded output and investigated how communication overhead, task mapping and synchronization affected performance and real-time behaviour.",
+  "description": "For the Embedded Systems Laboratory, our two-person team built libmyfifo, a lightweight single-producer/single-consumer FIFO library for communication between partitions on the CompSOC platform. We also implemented four JPEG decoding variants: a sequential baseline and data-parallel, function-parallel and hybrid-parallel versions. The experiment asked how best to share the work of turning a compressed JPEG into an image on a multicore chip: give cores different parts of the image, assign them different decoding stages, or combine both approaches. We compared the versions for correctness, speed and communication overhead.\n\nFor 16-byte tokens, our FIFO reduced communication cost from 786 to 322 cycles per token compared with the provided library, a speedup of about 2.4x. Across the non-trivial images in our benchmark, data parallelism achieved a 2.87x geometric-mean speedup over sequential decoding; function parallelism achieved 2.80x and the hybrid approach 2.38x. We validated the decoded output and investigated how communication overhead, task mapping and synchronization affected performance and real-time behaviour.",
   "context": "MSc course project",
   "collaboration": "team",
   "institution": "Eindhoven University of Technology",
@@ -25,7 +25,7 @@
     "start": "2026-06"
   },
   "image": {
-    "src": "../../assets/projects/compsoc.png",
+    "src": "../../assets/projects/hybrid_parallel.png",
     "alt": "A close-up of the CompSOC multicore system-on-chip under test probes."
   }
 }

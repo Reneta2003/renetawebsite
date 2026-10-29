@@ -1,7 +1,7 @@
 {
   "title": "Stay Focused",
-  "summary": "A serious game about ADHD.",
-  "description": "A serious game whose protagonist exhibits some of the symptoms of ADHD.",
+  "summary": "A Unity serious game that explores how distractions can interrupt and reprioritize everyday tasks for someone with ADHD.",
+  "description": "My team and I created Stay Focused, a serious game that gives players a hands-on way to experience how attention can be pulled in different directions. The player starts with everyday tasks to complete, but new distractions compete for their focus and can make them feel urgent—so the player may end up switching tasks before finishing what they started.\n\nWe built the game in Unity, creating its 3D assets in Blender and bringing them into the playable environment. We also incorporated advanced visual features, including ray tracing, to give the game a polished, immersive feel. The project used gameplay to communicate how ADHD-related attention challenges can affect planning and task completion.",
   "context": "BSc project",
   "collaboration": "team",
   "institution": "University of Twente",

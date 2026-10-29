@@ -6,6 +6,7 @@
   "collaboration": "team",
   "client": "NEMO Science Museum",
   "institution": "Eindhoven University of Technology",
+  "period": { "start": "2025-02", "end": "2025-07", "approximate": false },
   "categories": ["embedded", "software"],
   "skills": ["Unity", "C#", "Arduino", "Three.js", "WebGL", "Interactive Prototyping", "3D Printing"],
   "image": {

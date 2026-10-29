@@ -4,6 +4,8 @@
   "description": "A static website for my father’s air-conditioning business.",
   "context": "Personal project",
   "collaboration": "individual",
+  "period": { "start": "2021-02", "end": "2021-04", "approximate": true },
+
   "categories": ["software"],
   "skills": ["HTML/CSS", "JavaScript"],
   "image": { "src": "../../assets/projects/interterm-klima.jpg", "alt": "InterTerm Klima website header in red and black" },

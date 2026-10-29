@@ -1,9 +1,9 @@
 {
   "title": "Bio-inspired scheduling for wireless sensor networks",
-  "summary": "Compared Bat and Particle Swarm Optimization for sensor-node scheduling, then developed a hybrid approach.",
-  "description": "Our team studied how to schedule nodes in wireless sensor networks while balancing packet delivery, energy consumption and network lifetime. We implemented the Bat Algorithm, Particle Swarm Optimization (PSO), and a hybrid Bat-PSO approach in MATLAB. The simulations used 100 sensor nodes and compared results across 100 independent runs.\n\nThe hybrid combined the Bat Algorithm's exploration with PSO's convergence behaviour. In our simulations, it retained more energy than either standalone method and achieved a slightly higher packet delivery ratio than PSO, although the Bat Algorithm had the highest final packet delivery ratio. The evaluation also showed the limitations of making these comparisons in simulation without a full protocol stack or physical deployment.",
+  "summary": "Compared Bat and Particle Swarm Optimization for sensor scheduling to balance reliable delivery, energy use and network lifetime.",
+  "description": "I explored how to schedule wireless sensor nodes so they can deliver data reliably without wasting the limited energy that keeps the network running. Using MATLAB, I compared three approaches: the Bat Algorithm, Particle Swarm Optimization (PSO), and a hybrid that combines them. The simulation modeled 100 sensor nodes and averaged results across 100 runs.\n\nThe Bat Algorithm was inspired by energy-saving hibernation: nodes with different energy levels and positions are selected for communication over repeated scheduling rounds. I compared it with PSO, which adjusts node positions using individual and network-wide best solutions, then combined ideas from both in a hybrid algorithm. In the simulations, the hybrid left the most energy remaining after 20 iterations and performed best on network lifetime, while the Bat Algorithm used the most energy. These results show the trade-offs in this simulated setup; they do not establish how the algorithms would perform on deployed sensor hardware or a full network protocol stack.",
   "context": "MSc course project",
-  "collaboration": "team",
+  "collaboration": "individual",
   "institution": "Eindhoven University of Technology",
   "categories": [
     "networking",
